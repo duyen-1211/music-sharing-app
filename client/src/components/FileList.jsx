@@ -9,7 +9,7 @@ const FileList = forwardRef((props, ref) => {
   const fetchFiles = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/files"); 
+      const res = await fetch("https://music-sharing-app-kw03.onrender.com/api/files"); 
       if (!res.ok) throw new Error(`Lỗi server: ${res.status}`);
       const data = await res.json();
       setFiles(data);
@@ -25,7 +25,7 @@ const FileList = forwardRef((props, ref) => {
   // --- Hàm Download ---
   const handleDownload = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/download/${id}`);
+      const res = await fetch(`https://music-sharing-app-kw03.onrender.com/api/download/${id}`);
       const data = await res.json();
       window.open(data.downloadUrl, "_self");
       fetchFiles();
@@ -47,7 +47,7 @@ const FileList = forwardRef((props, ref) => {
     if (!window.confirm("Bạn có chắc chắn muốn xóa bài hát này không?")) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/files/${id}`, {
+      const res = await fetch(`https://music-sharing-app-kw03.onrender.com/api/files/${id}`, {
         method: 'DELETE',
       });
 

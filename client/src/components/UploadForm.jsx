@@ -22,7 +22,7 @@ export default function UploadForm({ onUploadSuccess }) {
     const xhr = new XMLHttpRequest();
     
     // --- SỬA Ở ĐÂY: GỌI TRỰC TIẾP SERVER ---
-    xhr.open("POST", "http://localhost:5000/api/upload"); 
+    xhr.open("POST", "https://music-sharing-app-kw03.onrender.com/api/upload"); 
 
     xhr.upload.onprogress = (event) => {
       if (event.lengthComputable) {

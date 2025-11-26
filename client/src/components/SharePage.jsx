@@ -12,7 +12,7 @@ const SharePage = () => {
     const fetchFile = async () => {
       try {
         // Gọi API lấy thông tin chi tiết 1 bài hát
-        const res = await fetch(`http://localhost:5000/api/files/${id}`);
+        const res = await fetch(`https://music-sharing-app-kw03.onrender.com/api/files/${id}`);
         if (!res.ok) throw new Error("Không tìm thấy file");
         const data = await res.json();
         setFile(data);
@@ -26,7 +26,7 @@ const SharePage = () => {
   }, [id]);
 
   const handleDownload = () => {
-    window.open(`http://localhost:5000/api/download/${id}`, "_self");
+    window.open(`https://music-sharing-app-kw03.onrender.com/api/download/${id}`, "_self");
   };
 
   if (loading) return <p style={{textAlign:'center', marginTop:'50px'}}>⏳ Đang tải thông tin bài hát...</p>;
