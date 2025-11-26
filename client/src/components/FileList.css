@@ -1,0 +1,157 @@
+.file-list {
+  /* Loại bỏ background chung để danh sách trông thoáng hơn */
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.file-list h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-left: 10px;
+  border-left: 5px solid #ff9a9e; /* Điểm nhấn bên trái tiêu đề */
+}
+
+.file-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.file-list li {
+  background: var(--card-bg);
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column; /* Trên mobile sẽ dọc, dưới desktop sẽ chỉnh lại */
+  gap: 15px;
+  border: 1px solid #fcfcfc;
+  transition: all 0.3s ease;
+}
+
+.file-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.file-list .file-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.file-list .file-info strong {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-list .file-info small {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Custom Audio Player một chút cho mềm mại */
+.file-list audio {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+  border-radius: 20px;
+}
+
+/* --- KHU VỰC NÚT BẤM (Đã chỉnh sửa hoàn thiện) --- */
+
+.file-list div:last-child {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.file-list button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: white; /* Chữ trắng */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Bóng nhẹ giúp chữ nổi hơn */
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.file-list button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* 1. Nút Share (Màu Tím Mộng Mơ) */
+.file-list button:first-child {
+  background-image: var(--btn-share);
+  box-shadow: 0 4px 10px rgba(161, 140, 209, 0.4);
+}
+
+/* 2. Nút Download (Màu Xanh Biển) - Thay màu để chữ trắng nổi bật hơn */
+.file-list button:nth-child(2) {
+  background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 10px rgba(0, 242, 254, 0.4);
+}
+
+/* 3. Nút Xóa (Style icon thùng rác - Màu Cam Đào) */
+.file-list button.icon-btn {
+    padding: 0;          
+    width: 42px;         
+    height: 42px;        
+    justify-content: center; 
+    align-items: center;     
+    font-size: 1.2rem;   
+    border-radius: 12px; 
+    
+    /* Màu riêng cho nút xóa */
+    background-image: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%) !important;
+    box-shadow: 0 4px 10px rgba(255, 175, 189, 0.4) !important;
+}
+
+/* Hiệu ứng xoay nhẹ khi di chuột vào nút xóa */
+.file-list button.icon-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --- RESPONSIVE --- */
+
+/* Màn hình lớn (Desktop/Tablet) */
+@media (min-width: 600px) {
+  .file-list li {
+    flex-direction: row; /* Ngang hàng */
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .file-list .file-info {
+    width: 60%;
+  }
+
+  .file-list div:last-child {
+    margin-top: 0;
+    width: 40%;
+    justify-content: flex-end;
+  }
+}
+
+/* Màn hình nhỏ (Mobile) */
+@media (max-width: 600px) {
+    .file-list button.icon-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+}
